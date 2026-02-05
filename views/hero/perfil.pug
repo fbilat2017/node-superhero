@@ -1,0 +1,29 @@
+doctype html
+html(lang="es")
+    head
+        title Perfil de #{hero.name}
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net")
+    body
+        section.section
+            .container
+                .card
+                    .card-image
+                        figure.image.is-4by5
+                            img(src=hero.image.url, alt=hero.name)
+                    .card-content
+                        h1.title.is-2= hero.name
+                        p.subtitle.is-4= hero.biography['full-name']
+
+                        hr
+
+                        h3.title.is-4 Estadísticas de Poder
+                        ul
+                            each value, stat in hero.powerstats
+                                li
+                                    strong #{stat.toUpperCase()}: 
+                                    span= value
+
+                        hr
+
+                        h3.title.is-4 Primera Aparición
+                        p= hero.biography['first-appearance']
